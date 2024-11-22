@@ -1,2 +1,3 @@
 # cyrillic.kak
-Mappings for cyrillic layouts for Kakoune
+
+The plugin maps letters of cyrillic layouts to english ones in the normal mode [Kakoune](https://kakoune.org).
