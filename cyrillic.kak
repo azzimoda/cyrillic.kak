@@ -3,10 +3,81 @@ declare-option str cyrillic_layout йцукен
 define-command cyrillic-set-layout -params 1 %{ set-option global cyrillic_layout %arg{1} } -docstring 'cyrillic-set-layout <layout>: set prefered cyrillic layout (only russian for now)'
 complete-command -menu cyrillic-set-layout shell-script-candidates 'echo йцукен; echo яжерты'
 
+define-command cyrillic-unmap-all %{
+    unmap global normal ё
+    unmap global normal й
+    unmap global normal ц
+    unmap global normal у
+    unmap global normal к
+    unmap global normal е
+    unmap global normal н
+    unmap global normal г
+    unmap global normal ш
+    unmap global normal щ
+    unmap global normal з
+    unmap global normal х
+    unmap global normal ъ
+    unmap global normal ф
+    unmap global normal ы
+    unmap global normal в
+    unmap global normal а
+    unmap global normal п
+    unmap global normal р
+    unmap global normal о
+    unmap global normal л
+    unmap global normal д
+    unmap global normal ж
+    unmap global normal э
+    unmap global normal я
+    unmap global normal ч
+    unmap global normal с
+    unmap global normal м
+    unmap global normal и
+    unmap global normal т
+    unmap global normal ь
+    unmap global normal б
+    unmap global normal ю
+    unmap global normal Ё
+    unmap global normal №
+    unmap global normal Й
+    unmap global normal Ц
+    unmap global normal У
+    unmap global normal К
+    unmap global normal Е
+    unmap global normal Н
+    unmap global normal Г
+    unmap global normal Ш
+    unmap global normal Щ
+    unmap global normal З
+    unmap global normal Х
+    unmap global normal Ъ
+    unmap global normal Ф
+    unmap global normal Ы
+    unmap global normal В
+    unmap global normal А
+    unmap global normal П
+    unmap global normal Р
+    unmap global normal О
+    unmap global normal Л
+    unmap global normal Д
+    unmap global normal Ж
+    unmap global normal Э
+    unmap global normal Я
+    unmap global normal Ч
+    unmap global normal С
+    unmap global normal М
+    unmap global normal И
+    unmap global normal Т
+    unmap global normal Ь
+    unmap global normal Б
+    unmap global normal Ю
+}
+
 #### йцукен ####
 # ёйцукенгшщзхъфывапролджэячсмитьбюЁ№ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ
 # `qwertyuiop[]asdfghjkl;'zxcvbnm,.~#QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>
 hook global -group cyrillic-layout GlobalSetOption cyrillic_layout=йцукен %{
+    cyrillic-unmap-all
     map global normal ё `
     map global normal й q
     map global normal ц w
@@ -80,6 +151,7 @@ hook global -group cyrillic-layout GlobalSetOption cyrillic_layout=йцукен 
 # юьяжертыуиопшщасдфгчйклэзхцвбнмЮёЁъЪЬЯЖЕРТЫУИОПШЩАСДФГЧЙКЛЭЗХЦВБНМ
 # `=qwertyuiop[]asdfghjkl\zxcvbnm~#$%^+QWERTYUIOP{}ASDFGHJKL|ZXCVBNM
 hook global -group cyrillic-layout GlobalSetOption cyrillic_layout=яжерты %{
+    cyrillic-unmap-all
     map global normal ю ` 
     map global normal ь = 
     map global normal я q 
